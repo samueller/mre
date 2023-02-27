@@ -1,5 +1,5 @@
 import streamlit as st
-from datetime import time
-mu = st.slider('$\mu$', 0.0, 5.0, 1.0, step=0.1)
-var = st.slider('$\sigma^2$', 0.0, mu, 1.0, step=0.1)
-st.write('$\mu$:', mu, '$\sigma^2$:', var) 
+
+mu = st.slider('$\mu$', 0.0, 5.0, 2.5, step=0.1, key='mu')
+var = st.slider('$\sigma^2$', 0.0, mu, min(mu, st.session_state.var) if 'var' in st.session_state else 1.0, step=0.1, key='var')
+st.write('$\mu$:', mu, '$\sigma^2$:', var)
